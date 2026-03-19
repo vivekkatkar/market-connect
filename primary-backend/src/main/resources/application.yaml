@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    url:
+    username:
+    password:
+    driver-class-name=org.postgresql.Driver:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  kafka:
+    bootstrap-servers:
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+api:
+  google:
+    api-key:
+    places:
+      base-url: https://places.googleapis.com/v1/places:searchNearby
+    geocoding:
+      base-url: https://maps.googleapis.com/maps/api/geocode/json
+
