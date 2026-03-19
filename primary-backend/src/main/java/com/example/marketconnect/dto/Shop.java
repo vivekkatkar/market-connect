@@ -1,10 +1,16 @@
 package com.example.marketconnect.dto;
 
+import lombok.Data;
+
+import java.util.List;
+
+@Data
 public class Shop {
-    String name;
-    Long distance; // distance from central place
-    String latitude;
-    String longitude;
-    String email;
-    String mobile;
+    DisplayName displayName;
+    String businessStatus;
+    String formattedAddress;
+    String internationalPhoneNumber;
+    String nationalPhoneNumber;
+    List<String> types;
+    String websiteUri;
 }

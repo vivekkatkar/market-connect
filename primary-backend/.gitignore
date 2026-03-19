@@ -6,6 +6,10 @@ target/
 !**/src/main/**/**/application-local.yaml
 **/application-local.yaml
 
+# Kafka SSL certs
+src/main/resources/certs/
+**/certs/**
+
 ### STS ###
 .apt_generated
 .classpath

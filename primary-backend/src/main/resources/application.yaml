@@ -3,7 +3,7 @@ spring:
     url:
     username:
     password:
-    driver-class-name=org.postgresql.Driver:
+    driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: update
@@ -12,9 +12,16 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
   kafka:
     bootstrap-servers:
+    properties:
+      security.protocol: SSL
+      ssl.truststore.type: PEM
+      ssl.truststore.certificates: classpath:certs/ca.pem
+      ssl.keystore.type: PEM
+      ssl.keystore.certificate.chain: classpath:certs/service.cert
+      ssl.keystore.key: classpath:certs/service.key
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
 api:
   google:

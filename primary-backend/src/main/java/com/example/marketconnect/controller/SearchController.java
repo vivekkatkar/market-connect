@@ -1,8 +1,11 @@
 package com.example.marketconnect.controller;
 
 import com.example.marketconnect.dto.SearchRequestBody;
+import com.example.marketconnect.dto.Shop;
 import com.example.marketconnect.service.SearchService;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class SearchController {
@@ -13,9 +16,9 @@ public class SearchController {
         this.searchService = searchService;
     }
 
-    @PostMapping("/search/{place}/")
-    public String search(@PathVariable String place, @RequestBody SearchRequestBody requestBody){
+    @PostMapping("/search")
+    public List<Shop> search(@RequestBody SearchRequestBody requestBody){
 
-        return searchService.searchShopsNearTo(place);
+        return searchService.searchShopsNearTo(requestBody);
     }
 }
